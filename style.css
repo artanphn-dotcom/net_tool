@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*
+ * © 2024 A.V. All rights reserved.
+ * Disclaimer: Tools are provided for informational purposes only.
+ */
+
+:root {
+    --primary-dark: #1A202C; /* Dark background */
+    --secondary-dark: #2D3748; /* Card background */
+    --accent-blue: #4299E1; /* Primary action color */
+    --text-light: #F7FAFC; /* Light text on dark background */
+    --text-muted: #CBD5E0; /* Muted text */
+    --border-color: #4A5568; /* Subtle border for cards/elements */
+    --bs-body-bg: var(--primary-dark);
+    --bs-body-color: var(--text-light);
+    --bs-dark-rgb: 26,32,44; /* For Bootstrap utility classes */
+    --bs-border-color: var(--border-color);
+}
+
 body {
+    font-family: 'Inter', sans-serif;
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-dark); /* Ensure body background matches */
+    color: var(--text-light); /* Ensure text color is light */
 }
 
 html {
@@ -8,26 +33,162 @@ html {
 }
 
 main {
-    height: 100vh;
-    height: -webkit-fill-available;
-    max-height: 100vh;
+    flex: 1;
     overflow-x: auto;
     overflow-y: hidden;
+    background-color: var(--primary-dark); /* Ensure main content background matches */
+    color: var(--text-light);
+    padding-top: 20px; /* Add some top padding */
+    padding-bottom: 20px; /* Add some bottom padding */
+}
+
+/* Header */
+.navbar {
+    background-color: var(--primary-dark) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    color: var(--text-light) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .sidebar {
     min-height: 100vh;
+    background-color: var(--secondary-dark) !important; /* Sidebar background */
+    border-right: 1px solid var(--border-color);
 }
 
 #sidebar .nav-link {
-    color: var(--bs-light);
+    color: var(--text-muted);
+    padding: 10px 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+#sidebar .nav-link:hover {
+    color: var(--accent-blue);
+    background-color: var(--primary-dark);
 }
 
 #sidebar .nav-link.active {
-    color: var(--bs-white);
-    font-weight: 500;
+    color: var(--accent-blue);
+    font-weight: 600;
+    background-color: var(--primary-dark);
+    border-left: 3px solid var(--accent-blue);
 }
 
 .card {
-    border: 1px solid var(--bs-border-color);
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--text-muted);
+}
+
+/* Form Elements */
+.form-label {
+    color: var(--text-light);
+}
+
+.form-control, .form-select, .form-control:focus, .form-select:focus {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    border-color: var(--border-color);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #3182CE; /* Slightly darker blue on hover */
+    border-color: #3182CE;
+}
+
+.alert-danger {
+    background-color: #C53030; /* Red */
+    color: var(--text-light);
+    border-color: #C53030;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+.badge.bg-success {
+    background-color: #38A169 !important; /* Green */
+}
+
+.badge.bg-warning {
+    background-color: #DD6B20 !important; /* Orange */
+    color: var(--primary-dark) !important;
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    background-color: var(--primary-dark) !important;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer .text-muted {
+    color: var(--text-muted) !important;
+    font-size: 0.85rem;
+}
+
+/* Utilities for results tables */
+.table-dark {
+    --bs-table-bg: var(--secondary-dark);
+    --bs-table-striped-bg: #222B3A; /* Slightly different stripe for readability */
+    --bs-table-hover-bg: #323A4A;
+    --bs-table-border-color: var(--border-color);
+    color: var(--text-light);
+}
+.table-dark th {
+    color: var(--accent-blue);
+}
+.table-success {
+    --bs-table-bg: #2C5282; /* Darker blue for success rows */
+}
+.table-warning {
+    --bs-table-bg: #805AD5; /* Purple for warning rows */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-brand span {
+        display: none !important; /* Hide tagline on small screens */
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hide sidebar off-screen */
+        width: 250px;
+        transition: all 0.3s;
+        z-index: 1030;
+    }
+    .sidebar.show {
+        left: 0;
+    }
+    main {
+        margin-left: 0 !important; /* Adjust main content */
+    }
 }

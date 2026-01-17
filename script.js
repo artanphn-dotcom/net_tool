@@ -1,3 +1,8 @@
+/*
+ * © 2024 A.V. All rights reserved.
+ * Disclaimer: Tools are provided for informational purposes only.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- General Tool Switching Logic ---
     const sidebarLinks = document.querySelectorAll('#sidebar .nav-link');
@@ -276,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function parseTraceroute(data) {
         const lines = data.trim().split('\n');
-        const ipRegex = /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/;
+        const ipRegex = /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/; 
         const hops = [];
         for (const line of lines) {
             const match = line.match(ipRegex);

@@ -1,0 +1,33 @@
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+main {
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.sidebar {
+    min-height: 100vh;
+}
+
+#sidebar .nav-link {
+    color: var(--bs-light);
+}
+
+#sidebar .nav-link.active {
+    color: var(--bs-white);
+    font-weight: 500;
+}
+
+.card {
+    border: 1px solid var(--bs-border-color);
+}
